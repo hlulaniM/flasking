@@ -1,0 +1,39 @@
+#creating api object
+app = Flask(__name__)
+api = Api(app)
+
+#defining a class with a method get , returning a json object
+
+class HelloWorld(Resource):
+	def __init__(self):
+		pass
+	@app.route( '/username/<string:name>',methods = ['POST'])
+	def post(self,name):
+		return 'Welcome : '+ name
+
+if __name__ == "__main__":
+	app.run(debug = True)
+
+
+
+
+# importing my own libraries to make my own api
+from flask import Flask, jsonify,request
+from flask_restful import Resource,Api
+
+#creating api object
+app = Flask(__name__)
+api = Api(app)
+
+#defining a class with a method get , returning a json object
+
+class HelloWorld(Resource):
+	def __init__(self):
+		pass
+	def get(self):
+	    return{
+		"Hello":"World"}
+
+api.add_resource(HelloWorld,'/')
+if __name__ == "__main__":
+   app.run(debug=True)

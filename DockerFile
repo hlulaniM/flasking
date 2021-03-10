@@ -1,0 +1,9 @@
+FROM python:rc-alpine3.12
+
+WORKDIR /app
+COPY . .
+
+RUN pip install -r requirements.txt
+
+ENTRYPOINT ["python"]
+CMD ["app.py"]
